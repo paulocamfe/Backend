@@ -1,4 +1,4 @@
-const produtoController = {
+const userController = {
     create: async (req, res) => {
         try {
             const { nome, email, senha } = req.body;
