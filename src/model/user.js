@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../config/config");
 const userController = require("../controllers/userController")
  
-const Email = sequelize.define('User', {
+const User = sequelize.define('User', {
     id: {
         type: DataTypes.UUID,
         allowNull: false,
@@ -25,7 +25,7 @@ const Email = sequelize.define('User', {
         allowNull: false
     }
 }, {
-    tableName: 'user',
+    tableName: 'User',
     timestamps: true
 });
  
