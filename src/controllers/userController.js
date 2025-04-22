@@ -1,3 +1,5 @@
+const User = require("../model/user");
+
 const userController = {
     create: async (req, res) => {
         try {
@@ -9,16 +11,17 @@ const userController = {
                 })  
             }
 
-            // Salvamos no banco...
+        const userCriado = await User.create({ nome, email, senha })
 
-            // 201 - Created
 
             return res.status(201).json({
-                msg: "User criado com sucesso"
+                msg: "User criado com sucesso".
+                userCriado
             })
  
  
         } catch (error) {
+            console.log(error)
             return res.status(500).json({
                 msg: "Deu um erro no sistema"
             })
@@ -67,10 +70,11 @@ const userController = {
     getAll: async (req, res) => {
         try {
             // Busca dos User 
+            const users = await User.findAll()
 
             return res.status(200).json({
                 msg: "User encontrados",
-                users: []
+                users
             })
             
         } catch (error) {
