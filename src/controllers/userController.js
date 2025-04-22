@@ -38,6 +38,11 @@ const userController = {
             }
 
             // Deletar o User
+            const userDeletado = await User.destroy({
+                where: {
+                    id
+                }
+            })
             
         } catch (error) {
            return res.status(500).json({
@@ -57,6 +62,15 @@ const userController = {
             }
  
             // Atualizar User...
+            const userAtualizado = await User.update({
+                nome,
+                email,
+                senha
+            }, {
+                where: {
+                    id
+                }
+            })
  
             return res.status(200).json({
                 msg: "User atualizado com sucesso"
